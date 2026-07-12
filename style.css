@@ -1,0 +1,395 @@
+/* ---------- GENERAL ---------- */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background-color:#243126;
+    color:#d9d9d9;
+
+    font-family:Arial, sans-serif;
+
+    text-align:center;
+
+    margin:0;
+
+    padding-top:100px;
+}
+body{
+    font-family:'Quicksand', sans-serif;
+}
+note{
+
+    max-width:800px;
+
+    margin:50px auto;
+
+    padding:40px;
+
+    background:#385231;
+
+    border-radius:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+/* ---------- HEADER ---------- */
+
+header{
+    margin-top:30px;
+    margin-bottom:60px;
+}
+
+h1{
+    font-size:60px;
+    color:#528f5b;
+    margin-bottom:10px;
+}
+
+.tagline{
+    font-size:22px;
+    font-style:italic;
+    color:#d9d9d9;
+}
+.hero{
+
+    min-height:70vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+.hero-button{
+
+    margin-top:30px;
+
+    background:#5b7d5f;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:0.3s;
+
+}
+.hero-button:hover{
+
+    background:#6d9472;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ---------- HEADINGS ---------- */
+
+h2{
+    color:#d7a8c6;
+    font-size:34px;
+    margin-top:60px;
+}
+
+h3{
+    color:#ffffff;
+    font-size:28px;
+}
+
+.divider{
+
+    font-size:28px;
+
+    margin:70px 0;
+
+}
+/* ---------- TEXT ---------- */
+
+p{
+    font-size:22px;
+    line-height:1.6;
+    color:#d9d9d9;
+}
+.intro-box{
+
+    max-width: 850px;
+
+    margin: 40px auto;
+
+    padding: 35px;
+
+    background-color: #385231;
+
+    border-radius: 30px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+nav{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    background:#385231;
+
+    padding:12px 20px;
+
+    border-radius:999px;
+
+    width:fit-content;
+
+    max-width:90%;
+
+    margin:20px auto;
+
+}
+
+nav a{
+
+    background:#445e45;
+
+    color:#f5f1eb;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    transition:0.3s;
+
+}
+
+nav a:hover{
+
+    background:#6d9472;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* ---------- GALLERY ---------- */
+
+.gallery{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:40px;
+
+    margin-top:50px;
+
+}
+
+
+/* ---------- ARTWORK CARDS ---------- */
+
+.artwork{
+
+    width:350px;
+
+    background:#385231;
+
+    border-radius:30px;
+
+    padding:20px;
+
+    transition:0.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+}
+
+.artwork:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+
+}
+.badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+.finished{
+
+    background:#6d9472;
+
+    color:white;
+
+}
+.wip{
+
+    background:#cfa7bd;
+
+    color:white;
+
+}
+.artwork h3{
+
+    margin-top:20px;
+
+    margin-bottom:10px;
+
+}
+.hero-button{
+
+border-radius:999px;
+
+transition:0.3s;
+
+}
+.hero-button:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ---------- IMAGES ---------- */
+
+.artwork img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    transition:0.4s;
+
+}
+
+.artwork:hover img{
+
+    transform:scale(1.03);
+
+}
+.artwork img{
+
+    margin-top:10px;
+
+}
+
+/* ---------- LITTLE STATUS BOX ---------- */
+
+.work-status{
+
+    background:#2d4128;
+
+    width:80%;
+
+    margin:0 auto 20px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+}
+
+
+/* ---------- NOTE BOXES ---------- */
+
+.note{
+
+    background:#1f2d1b;
+
+    width:60%;
+
+    margin:30px auto;
+
+    padding:25px;
+
+    border-radius:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+}
+/* ---------- FOOTER ---------- */
+
+footer{
+
+    margin-top:100px;
+
+    padding:30px;
+
+    background:#1b241d;
+
+    color:#f2eee7;
+
+    font-size:16px;
+
+}
+/* ---------- MEDIA QUERIES ---------- */
+#contact a{
+
+    color:#f5f1eb;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+#contact a:hover{
+
+    color:#e9bfd7;
+
+}
+@media (max-width: 768px) {
+
+    nav {
+
+        border-radius: 20px;
+
+        padding: 15px;
+
+    }
+
+    nav a {
+
+        font-size: 16px;
+
+        margin: 5px;
+
+    }
+
+}
