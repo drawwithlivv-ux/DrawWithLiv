@@ -212,7 +212,6 @@ While I've spent many years creating traditional artwork, I've only recently beg
 
 </div>
 
-
 <script>
 
 function openImage(image) {
@@ -331,11 +330,74 @@ document.addEventListener("contextmenu", function(event) {
 
     </section>
 <script>
+
+function openImage(image) {
+
+    const viewer = document.getElementById("imageViewer");
+    const viewerImage = document.getElementById("viewerImage");
+
+    viewerImage.src = image.src;
+    viewerImage.alt = image.alt;
+
+    viewer.classList.add("active");
+
+    document.body.classList.add("viewer-open");
+}
+
+
+function closeImage() {
+
+    const viewer = document.getElementById("imageViewer");
+
+    viewer.classList.remove("active");
+
+    document.body.classList.remove("viewer-open");
+}
+
+
+/* Close when clicking outside the image */
+
+document.getElementById("imageViewer").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+        closeImage();
+    }
+
+});
+
+
+/* Close with Escape */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeImage();
+    }
+
+});
+
+
+/* Disable right-click on artwork images */
+
 document.addEventListener("contextmenu", function(event) {
+
     if (event.target.tagName === "IMG") {
         event.preventDefault();
     }
+
 });
+
+
+/* Prevent dragging images */
+
+document.addEventListener("dragstart", function(event) {
+
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+
+});
+
 </script>
 </body>
 
