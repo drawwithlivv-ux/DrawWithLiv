@@ -222,7 +222,13 @@ While I've spent many years creating traditional artwork, I've only recently beg
         </div>
 
     </section>
-
+<script>
+document.addEventListener("contextmenu", function(event) {
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+});
+</script>
 </body>
 
 </html>
