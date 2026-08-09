@@ -311,6 +311,9 @@ transform:translateY(-3px);
     user-select: none;
     -webkit-user-drag: none;
 }
+.work-status {
+    position: relative;
+}
 .watermark {
     position: absolute;
     bottom: 10px;
