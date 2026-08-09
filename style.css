@@ -311,9 +311,16 @@ transform:translateY(-3px);
     user-select: none;
     -webkit-user-drag: none;
 }
-.work-status {
+.image-container {
     position: relative;
+    display: inline-block;
 }
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+}
+
 .watermark {
     position: absolute;
     bottom: 10px;
