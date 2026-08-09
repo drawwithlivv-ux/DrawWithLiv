@@ -102,9 +102,12 @@ While I've spent many years creating traditional artwork, I've only recently beg
         </div>
 
         <div class="image-container">
-            <a href="my duckie.livv.png">
-                <img src="my duckie.livv.png" alt="Lil' Duckie">
-            </a>
+            <img
+                src="YOUR-DUCK-FILENAME.png"
+                alt="Lil' Duckie"
+                class="gallery-image"
+                onclick="openImage(this)"
+            >
 
             <span class="watermark">©DrawWithLivv</span>
         </div>
@@ -131,9 +134,12 @@ While I've spent many years creating traditional artwork, I've only recently beg
         </div>
 
         <div class="image-container">
-            <a href="Tiger work in prgs.png">
-                <img src="Tiger work in prgs.png" alt="Curious Tiger">
-            </a>
+            <img
+                src="Tiger work in prgs.png"
+                alt="Curious Tiger"
+                class="gallery-image"
+                onclick="openImage(this)"
+            >
 
             <span class="watermark">©DrawWithLivv</span>
         </div>
@@ -161,9 +167,12 @@ While I've spent many years creating traditional artwork, I've only recently beg
         </div>
 
         <div class="image-container">
-            <a href="1st-commission-piece.png">
-                <img src="1st-commission-piece.png" alt="First commission">
-            </a>
+            <img
+                src="1st-commission-piece.png"
+                alt="First commission"
+                class="gallery-image"
+                onclick="openImage(this)"
+            >
 
             <span class="watermark">©DrawWithLivv</span>
         </div>
@@ -181,6 +190,92 @@ While I've spent many years creating traditional artwork, I've only recently beg
     </div>
 
 </section>
+
+
+<!-- FULL-SCREEN IMAGE VIEWER -->
+
+<div id="imageViewer" class="image-viewer">
+
+    <button class="close-viewer" onclick="closeImage()">
+        &times;
+    </button>
+
+    <div class="viewer-image-container">
+
+        <img id="viewerImage" src="" alt="Artwork">
+
+        <span class="viewer-watermark">
+            ©DrawWithLivv
+        </span>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openImage(image) {
+
+    const viewer = document.getElementById("imageViewer");
+    const viewerImage = document.getElementById("viewerImage");
+
+    viewerImage.src = image.src;
+    viewerImage.alt = image.alt;
+
+    viewer.classList.add("active");
+
+    document.body.classList.add("viewer-open");
+}
+
+
+function closeImage() {
+
+    const viewer = document.getElementById("imageViewer");
+
+    viewer.classList.remove("active");
+
+    document.body.classList.remove("viewer-open");
+}
+
+
+/* Close when clicking outside the artwork */
+
+document.getElementById("imageViewer").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+        closeImage();
+    }
+
+});
+
+
+/* Close with Escape key */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeImage();
+    }
+
+});
+
+
+/* Disable right-click on gallery and viewer images */
+
+document.addEventListener("contextmenu", function(event) {
+
+    if (
+        event.target.tagName === "IMG" ||
+        event.target.classList.contains("image-container") ||
+        event.target.classList.contains("viewer-image-container")
+    ) {
+        event.preventDefault();
+    }
+
+});
+
+</script>
 
     <!-- Progress -->
 <div class="divider">🍃 🍂 🌿 🍂 🍃</div>
