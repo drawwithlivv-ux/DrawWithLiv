@@ -310,8 +310,10 @@ transform:translateY(-3px);
 
 .image-wrapper {
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    line-height: 0;
 }
 
 .gallery-image {
@@ -328,6 +330,7 @@ transform:translateY(-3px);
     right: 10px;
     color: white;
     font-size: 14px;
+    line-height: normal;
     opacity: 0.7;
     z-index: 10;
 }
