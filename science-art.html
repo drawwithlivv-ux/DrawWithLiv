@@ -59,107 +59,96 @@
         
         </div>
         
-<!--- Skull flip card  --->
+<!-- Skull flip card -->
 
-    <section class="gallery">
+<section class="gallery">
 
-        <!--- flip card --->
+    <div class="artwork flip-card"
+         tabindex="0"
+         role="button"
+         aria-pressed="false"
+         aria-label="Flip Skull - Right View artwork">
 
-    <div class"artwork flip-card"
-        tabindex="0" role="button"
-        aria-label="flip skull in progress card"
+        <div class="flip-card-inner">
 
-    <div class"flip-card-inner">
-        
-<!--- Skull front of card--->
+            <!-- FRONT OF CARD -->
 
-        <div class="flip-card-front">
-     
-     <div class="image-container">
-         
-         <div class="image-wrapper">
+            <div class="flip-card-front">
 
-             <img
-                 src="skull in progress.png"
-                 alt-"Skull - Right view"
-             class="gallery-image"
-             onclick="openImage(this)"
-             >
-     <span class="watermark">©DrawWithLivv</span>
+                <div class="image-container">
 
-         </div>
+                    <div class="image-wrapper">
 
-     </div>
+                        <img
+                            src="skull in progress.png"
+                            alt="Skull - Right View"
+                            class="gallery-image"
+                        >
 
-     <h3>Skull - Right View</h3>
+                        <span class="watermark">©DrawWithLivv</span>
 
-     <p>
-         The human skull:
-         <br>
-         This is currently a work in progress but will be a fully completed human skull with all the correct features and structures whilst being interpreted with my own artistic twist to it. 
-         <br>
-         References: will be added when i add background science information!
-     </p>
+                    </div>
 
-            <!--- back of card --->
+                </div>
 
-    <div class="flip-card-back">
+                <h3>Skull - Right View</h3>
 
-        <h3> skull - Right View </h3>
+                <p>
+                    The human skull:
+                    <br><br>
 
-        <h4> Science behind the artwork </h4>
+                    This is currently a work in progress but will be
+                    a fully completed human skull with all the correct
+                    features and structures whilst being interpreted
+                    with my own artistic twist to it.
 
-        <p> to be added .....</p>
+                    <br><br>
 
-        <h4> extra sketches </h4>
+                    References: will be added when I add background
+                    science information!
+                </p>
 
-        <!--- remember to replace these images js put the code in for now ---> 
+                <p class="flip-hint">Click to explore the artwork ↻</p>
 
-        <img 
-            src= "skull in progress.png"
-        alt="skull right view"
-        class="gallery-image">
+            </div>
 
-        <img
-            src="skull in progress.png"
-            alt="labelled image"
-            class="gallery-image">
-            
-        <p class="flip-hint"> CLick to flip back </p>
 
-    </div>
+            <!-- BACK OF CARD -->
+
+            <div class="flip-card-back">
+
+                <h3>Skull - Right View</h3>
+
+                <h4>Science Behind the Artwork</h4>
+
+                <p>
+                    To be added once the artwork is finished!
+                </p>
+
+                <h4>Extra Sketches</h4>
+
+                <img
+                    src="skull in progress.png"
+                    alt="Skull right view sketch"
+                    class="gallery-image"
+                >
+
+                <img
+                    src="skull in progress.png"
+                    alt="Additional skull sketch"
+                    class="gallery-image"
+                >
+
+                <p class="flip-hint">Click to return to the artwork </p>
+
+            </div>
 
         </div>
 
     </div>
 
-        ```html
-<script>
-document.querySelectorAll('.flip-card').forEach(card => {
-
-    function flipCard() {
-        const flipped = card.classList.toggle('flipped');
-
-        card.setAttribute('aria-pressed', flipped);
-    }
-
-    // Click to flip
-    card.addEventListener('click', flipCard);
-
-    // Keyboard support
-    card.addEventListener('keydown', function(event) {
-
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            flipCard();
-        }
-
-    });
-
-});
-</script>
-```
-
+</section>
+    
     <!-- Footer -->
 
     <footer>
