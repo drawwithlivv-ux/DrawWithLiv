@@ -772,3 +772,28 @@ body.viewer-open {
         transition: none;
     }
 }
+
+/* Make the science art flip cards wider */
+.artwork.flip-card {
+    width: 550px;
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep the artwork fitting inside the wider card */
+.flip-card-front .image-wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+
+.flip-card-front .gallery-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Keep the back side within the card */
+.flip-card-back {
+    width: 100%;
+    box-sizing: border-box;
+}
