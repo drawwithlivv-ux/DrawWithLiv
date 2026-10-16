@@ -249,94 +249,7 @@ nav a:hover{
     line-height: 0;
 }
 
-```css
-/* Individual flip card */
-.flip-card {
-    perspective: 1000px;
-    cursor: pointer;
-}
 
-/* Inner card that rotates */
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 450px;
-    transform-style: preserve-3d;
-    transition: transform 0.7s ease;
-}
-
-/* Flip the card */
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-/* Front and back */
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    border-radius: 12px;
-    overflow-y: auto;
-}
-
-/* Front */
-.flip-card-front {
-    background: inherit;
-}
-
-/* Back */
-.flip-card-back {
-    background: #f5f0e8;
-    color: #333;
-    transform: rotateY(180deg);
-    padding: 20px;
-}
-
-/* Extra sketches on the back */
-.flip-card-back img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border-radius: 8px;
-}
-
-/* Flip instruction */
-.flip-hint {
-    text-align: center;
-    font-size: 0.85rem;
-    opacity: 0.7;
-    margin-top: 15px;
-}
-
-/* Keyboard focus */
-.flip-card:focus-visible {
-    outline: 3px solid #777;
-    outline-offset: 4px;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .flip-card-inner {
-        min-height: 400px;
-    }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .flip-card-inner {
-        transition: none;
-    }
-}
-```
 
 /* ==============================
    GALLERY IMAGE
@@ -761,4 +674,101 @@ footer{
 
 body.viewer-open {
     overflow: hidden;
+}
+
+/* =========================================
+   SCIENCE ART FLIP CARDS
+   Add this section after the existing site styles.
+========================================= */
+
+/* Keep the existing artwork card dimensions, colors and padding. */
+.artwork.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    transform: none;
+}
+
+/* Disable the existing artwork hover lift on flip cards. */
+.artwork.flip-card:hover {
+    transform: none;
+}
+
+/* The inner card takes its height from the front face. */
+.artwork.flip-card .flip-card-inner {
+    position: relative;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+/* Rotate both faces together. */
+.artwork.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and back share the same card area. */
+.artwork.flip-card .flip-card-front,
+.artwork.flip-card .flip-card-back {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Front stays in normal flow so it determines card height. */
+.artwork.flip-card .flip-card-front {
+    position: relative;
+    background: #243126;
+}
+
+/* Back sits directly over the front. */
+.artwork.flip-card .flip-card-back {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    background: #385231;
+    color: #d9d9d9;
+    transform: rotateY(180deg);
+}
+
+/* Keep the back-side sketches within the card. */
+.artwork.flip-card .flip-card-back img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    border-radius: 12px;
+    transform: none;
+}
+
+/* Don't enlarge the sketch images when the card is hovered. */
+.artwork.flip-card:hover .flip-card-back img {
+    transform: none;
+}
+
+.artwork.flip-card .flip-hint {
+    font-size: 16px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.artwork.flip-card:focus-visible {
+    outline: 3px solid #d7a8c6;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .artwork.flip-card .flip-card-back {
+        padding: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .artwork.flip-card .flip-card-inner {
+        transition: none;
+    }
 }
