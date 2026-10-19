@@ -845,3 +845,63 @@ body.viewer-open {
         padding: 15px;
     }
 }
+
+/* =========================================
+   EXTRA WORK IN PROGRESS GALLERY
+========================================= */
+
+.extra-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    margin: 50px auto;
+}
+
+/* Dancing Frog and other standard cards */
+.extra-gallery > .artwork:not(.personalised-commission) {
+    width: 350px;
+}
+
+/* Personalised Commission card */
+.extra-gallery > .artwork.personalised-commission {
+    width: 550px;
+    max-width: 95%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Keep the commission image proportional */
+.extra-gallery .personalised-commission .image-container {
+    display: block;
+    width: 100%;
+}
+
+.extra-gallery .personalised-commission .image-wrapper {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+}
+
+.extra-gallery .personalised-commission .gallery-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .extra-gallery {
+        gap: 30px;
+    }
+
+    .extra-gallery > .artwork,
+    .extra-gallery > .artwork.personalised-commission {
+        width: 95%;
+        max-width: 95%;
+    }
+}
