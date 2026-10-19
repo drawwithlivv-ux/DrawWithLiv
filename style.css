@@ -797,3 +797,51 @@ body.viewer-open {
     width: 100%;
     box-sizing: border-box;
 }
+
+/* =========================================
+   PERSONALISED COMMISSION CARD
+========================================= */
+
+.artwork.personalised-commission {
+    width: 550px;
+    max-width: 95%;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+/* Image container */
+.artwork.personalised-commission .image-container {
+    display: block;
+    width: 100%;
+}
+
+/* Image wrapper */
+.artwork.personalised-commission .image-wrapper {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+}
+
+/* Keep the rectangular image proportional */
+.artwork.personalised-commission .gallery-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* Description */
+.artwork.personalised-commission p {
+    overflow-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .artwork.personalised-commission {
+        width: 95%;
+        padding: 15px;
+    }
+}
