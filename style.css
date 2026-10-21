@@ -859,10 +859,6 @@ body.viewer-open {
     margin: 50px auto;
 }
 
-/* Dancing Frog and other standard cards */
-.extra-gallery > .artwork:not(.personalised-commission) {
-    width: 350px;
-}
 
 /* Personalised Commission card */
 .extra-gallery > .artwork.personalised-commission {
