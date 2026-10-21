@@ -1,4 +1,4 @@
-<img width="1781" height="877" alt="image" src="https://github.com/user-attachments/assets/dba616f1-9c45-442c-b777-8e6ccfb221e3" />
+<img width="1808" height="868" alt="Screenshot 2026-10-21 203049" src="https://github.com/user-attachments/assets/cbf95bd1-eb7f-4160-aff0-81e3272525cc" />
 
 🌿 DrawWithLivv
 
