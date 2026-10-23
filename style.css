@@ -901,3 +901,22 @@ body.viewer-open {
         max-width: 95%;
     }
 }
+
+/* Science and art blackboard css */
+
+.blackboard {
+    background-colour:#003300;
+    colour: white;
+    padding: 20px;
+    border: 5px solid #8B4513;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.blackboard h1 {
+    font size: 36px;
+}
+.blackboard p {
+    font-size: 18px;
+}
+
+    
