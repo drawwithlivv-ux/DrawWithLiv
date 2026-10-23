@@ -14,6 +14,30 @@
               <div class="blackboard">
                      <h1> welcome to my science and art page! </h1>
                      <p> ** please trust that this is a work in progress rn but should hopefully resemble blackboard very soon! ** </p>
+
+                     <div class="blackboard">
+                            <h1> Interactive </h1>
+                            <input type="text" id="noteInput" placeholder="write a note">
+                            <button id="addNoteButton">Add Note</button>
+                            <div id="notesContainer"></div>
+                     </div>
+                     <script>
+                            const noteInput = document.getElementById('noteInput');
+                            const addNoteButton = document.getElementById('addNoteButton');
+                            const notesContainer = document.getElementById('notesContainer');
+
+                            addNoteButton.addEventListener('click', function () {
+                                   const noteText = noteInput.value;
+                                   if (noteText) {
+                                          const noteElement = document.createElement('p');
+                                          noteElement.textContent = noteText;
+                                          notesContainer.appendChild(noteElement);
+                                          noteInput.value = '';
+                                   }
+                            });
+                     </script>
+              
+       
        </body>
 
 <head>
