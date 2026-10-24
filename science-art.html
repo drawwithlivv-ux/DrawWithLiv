@@ -1,76 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-
-       <head>
-              
- <!--- blackboard layout --->
-       <meta charset="UTF - 8">
-       <meta name="viewport" content="width=device-width, initial - scale=1.0">
-       <title>blackboard</title>
-       <link rel="stylesheet" href="styles.css">
-       </head>
-
-       <body>
-              <div class="blackboard">
-                     <h1> welcome to my science and art page! </h1>
-                     <p> ** please trust that this is a work in progress rn but should hopefully resemble blackboard very soon! ** </p>
-
-                     <div class="blackboard">
-                            <h1> Interactive </h1>
-                            <input type="text" id="noteInput" placeholder="write a note">
-                            <button id="addNoteButton">Add Note</button>
-                            <div id="notesContainer"></div>
-                     </div>
-                     <script>
-                            const noteInput = document.getElementById('noteInput');
-                            const addNoteButton = document.getElementById('addNoteButton');
-                            const notesContainer = document.getElementById('notesContainer');
-
-                            addNoteButton.addEventListener('click', function () {
-                                   const noteText = noteInput.value;
-                                   if (noteText) {
-                                          const noteElement = document.createElement('p');
-                                          noteElement.textContent = noteText;
-                                          notesContainer.appendChild(noteElement);
-                                          noteInput.value = '';
-                                   }
-                            });
-                     </script>
-              
-       
-       </body>
-
 <head>
-       <!--- pinterest --->
-    <meta name="p:domain_verify" content="30b4c8f809db06b66f9fc21a6976aa6a"/>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z549JHGPP0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Z549JHGPP0');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DrawWithLivv</title>
+    <meta name="p:domain_verify" content="30b4c8f809db06b66f9fc21a6976aa6a">
 
+    <title>Science and Art | DrawWithLivv</title>
+
+    <!-- Keep the existing website styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z549JHGPP0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-Z549JHGPP0');
+    </script>
+
+    <style>
+        /* ==============================
+           SCIENCE & ART COURSE DESIGN
+        ============================== */
+
+        .science-art-page {
+            padding-top: 20px;
+            text-align: left;
+        }
+
+        .science-art-page .site-nav {
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+        }
+
+        .course-heading {
+            max-width: 1100px;
+            margin: 45px auto 25px;
+            padding: 20px;
+        }
+
+        .course-kicker {
+            color: #d7a8c6;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .course-heading h1 {
+            margin: 0;
+            color: #d9e6d7;
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.1;
+        }
+
+        .course-subtitle {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .course-intro {
+            max-width: 1100px;
+            margin: 20px auto 30px;
+            padding: 25px 30px;
+            text-align: left;
+        }
+
+        .course-intro p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Main two-column layout */
+
+        .course-shell {
+            display: grid;
+            grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
+            gap: 22px;
+            max-width: 1200px;
+            margin: 30px auto 70px;
+            padding: 0 20px;
+            align-items: start;
+        }
+
+        .course-sidebar,
+        .course-main {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid rgba(215, 232, 215, 0.2);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+        }
+
+        /* Sidebar */
+
+        .course-sidebar {
+            background: #1d2b22;
+            color: #edf4ed;
+        }
+
+        .sidebar-heading {
+            padding: 20px 18px 12px;
+            background: #304b38;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-eyebrow {
+            color: #d7a8c6;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        .sidebar-heading h2 {
+            margin: 6px 0 0;
+            color: white;
+            font-size: 22px;
+        }
+
+        .sidebar-hint {
+            padding: 0 18px;
+            color: #c8d3c9;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .course-tree {
+            padding: 8px 10px 16px;
+        }
+
+        .tree-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 3px 0;
+        }
+
+        .tree-toggle,
+        .tree-select {
+            border: 0;
+            color: #edf4ed;
+            background: transparent;
+            border-radius: 7px;
+            cursor: pointer;
+            font: inherit;
+            text-align: left;
+        }
+
+        .tree-toggle {
+            width: 28px;
+            min-width: 28px;
+            padding: 8px 4px;
+            text-align: center;
+        }
+
+        .tree-toggle:disabled {
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .tree-select {
+            flex: 1;
+            min-width: 0;
+            padding: 9px 8px;
+            overflow-wrap: anywhere;
+            font-size: 14px;
+        }
+
+        .tree-toggle:hover,
+        .tree-select:hover {
+            background: #3d5d45;
+        }
+
+        .tree-select[aria-current="page"] {
+            background: #d7a8c6;
+            color: #243126;
+            font-weight: 600;
+        }
+
+        .tree-children {
+            margin-left: 13px;
+            padding-left: 9px;
+            border-left: 1px solid rgba(215, 232, 215, 0.2);
+        }
+
+        /* Main content panel */
+
+        .course-main {
+            background: #f7f7f1;
+            color: #27372b;
+        }
+
+        .course-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 15px 22px;
+            background: #e9eee7;
+            border-bottom: 1px solid #d7dfd4;
+        }
+
+        .course-breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 7px;
+            color: #425a46;
+            font-size: 13px;
+        }
+
+        .course-breadcrumb button {
+            border: 0;
+            padding: 3px 0;
+            background: transparent;
+            color: #365e40;
+            font: inherit;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .course-status {
+            color: #6a4860;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .course-view {
+            min-height: 360px;
+            padding: clamp(18px, 3vw, 32px);
+        }
+
+        .course-view h2 {
+            margin-top: 8px;
+            color: #304b38;
+            font-size: 28px;
+        }
+
+        .course-view h3 {
+            color: #304b38;
+        }
+
+        .course-view p {
+            color: #354638;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .welcome-icon {
+            font-size: 42px;
+        }
+
+        /* Welcome shortcuts and folder cards */
+
+        .quick-links,
+        .folder-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .quick-link,
+        .course-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 68px;
+            padding: 14px;
+            border: 1px solid #d7dfd4;
+            border-radius: 10px;
+            background: white;
+            color: #2f4c36;
+            text-align: left;
+            cursor: pointer;
+            font: inherit;
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+
+        .quick-link:hover,
+        .course-item:hover {
+            background: #edf3ea;
+            border-color: #8fa992;
+        }
+
+        .course-item .item-icon {
+            font-size: 25px;
+        }
+
+        .course-item .item-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .course-item .item-title {
+            font-weight: 600;
+        }
+
+        .course-item .item-description {
+            color: #667567;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .course-notice {
+            padding: 16px;
+            border-left: 4px solid #d7a8c6;
+            border-radius: 6px;
+            background: #edf3ea;
+        }
+
+        /* Skull artwork flip card */
+
+        .course-view .artwork.flip-card {
+            width: min(550px, 100%);
+            max-width: 100%;
+            margin: 20px auto;
+            padding: 18px;
+            background: #e9eee7;
+            color: #27372b;
+            box-sizing: border-box;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.55s ease;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 10px;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            position: relative;
+            background: #e9eee7;
+        }
+
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            overflow-y: auto;
+            padding: 18px;
+            background: #dce7d9;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-back h4 {
+            color: #304b38;
+        }
+
+        .course-view .artwork.flip-card p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .course-view .artwork.flip-card .gallery-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .flip-hint {
+            text-align: center;
+            font-size: 13px !important;
+            color: #526a56 !important;
+        }
+
+        .flip-card:focus-visible {
+            outline: 3px solid #b87da5;
+            outline-offset: 4px;
+        }
+
+        .science-art-page footer {
+            text-align: center;
+        }
+
+        .science-art-page footer p {
+            font-size: 14px;
+        }
+
+        /* Mobile layout */
+
+        @media (max-width: 760px) {
+            .course-shell {
+                grid-template-columns: 1fr;
+                padding: 0 12px;
+            }
+
+            .course-heading {
+                margin-top: 25px;
+                padding: 15px;
+            }
+
+            .course-intro {
+                margin: 15px 12px 25px;
+                padding: 20px;
+            }
+
+            .course-view {
+                min-height: 260px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .flip-card-inner {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
-<body>  
-    
-    <!-- Navigation -->
+<body class="science-art-page">
 
-    <nav>
+    <!-- Main website navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="index.html#art">Gallery</a>
@@ -79,163 +451,552 @@
         <a href="links.html">My Links</a>
     </nav>
 
-    <!--- about --->
-    
-    <div class="divider">🍃 🍂 🌿 🍂 🍃 </div>
+    <div class="divider" aria-hidden="true">🍃 🍂 🌿 🍂 🍃</div>
 
-<section id="art">
-    
-    <h2> Science and Art </h2>
-
-    <div class="intro-box">
-        
-    <p> Hi!, I think you can tell but I have quite different plans for this section of my website. On here im going to include science-related drawings and explanations of the science behind them! 
-       
-        <br><br>
-        
-        In the future, I aim to integrate my own revision tool on here using these cards, aimed to help train your recall and animations for 3D spacial recognition! I hope you grow to love this page as much as I am going to love creating it. 
-     
-       <br><br>
-
-       **I am also working on a way to give each section say skull,
-       brain hand heart, etc, you know the different anatomical structures, folders with flipable cards so that this page feels more organised, 
-       this is an update i aim to have done soon!**
-           
+    <!-- Page heading -->
+    <header class="course-heading">
+        <p class="course-kicker">DRAWWITHLIVV · LEARNING SPACE</p>
+        <h1>Science &amp; Art</h1>
+        <p class="course-subtitle">
+            Explore anatomy, science and drawing through visual learning.
         </p>
-        
-        </div>
-        
-<!-- Skull flip card -->
+    </header>
 
-<section class="gallery">
+    <section class="intro-box course-intro">
+        <p>
+            Welcome to my Science and Art learning space! Here, I'll combine
+            science-related drawings with explanations of the science behind them.
+            <br><br>
+            This course area is a work in progress. I'm planning to add anatomical
+            folders, flip cards, revision tools and interactive learning activities
+            over time.
+        </p>
+    </section>
 
-    <div class="artwork flip-card"
-         tabindex="0"
-         role="button"
-         aria-pressed="false"
-         aria-label="Flip Skull - Right View artwork">
+    <!-- Blackboard-style course area -->
+    <main class="course-shell" id="courseApp">
 
-        <div class="flip-card-inner">
+        <aside class="course-sidebar" aria-label="Course content navigation">
+            <div class="sidebar-heading">
+                <span class="sidebar-eyebrow">COURSE MENU</span>
+                <h2>Course Content</h2>
+            </div>
 
-            <!-- FRONT OF CARD -->
+            <p class="sidebar-hint">
+                Use the arrows to expand folders, or select a folder name to view it.
+            </p>
 
-            <div class="flip-card-front">
+            <nav id="courseTree" class="course-tree" aria-label="Course folders"></nav>
+        </aside>
 
-                <div class="image-container">
+        <section class="course-main" aria-live="polite" aria-atomic="false">
 
-                    <div class="image-wrapper">
-
-                        <img
-                            src="skull signed.png"
-                            alt="Skull - Right View"
-                            class="gallery-image"
-                        >
-
-                        <span class="watermark">©DrawWithLivv</span>
-
-                    </div>
-
+            <div class="course-toolbar">
+                <div id="courseBreadcrumb" class="course-breadcrumb">
+                    <span>Course Content</span>
                 </div>
 
-                <h3>Skull - Right View</h3>
-
-                <p>
-                    The human skull:
-                    <br><br>
-
-                    This is currently a work in progress but will be
-                    a fully completed human skull with all the correct
-                    features and structures whilst being interpreted
-                    with my own artistic twist to it.
-
-                    <br><br>
-
-                    References: I used an app called Complete Anatomy to help me label and get the key aspects of this skull correct. It is also where I got my information.
-                </p>
-
-                <p class="flip-hint">Click to explore the artwork ↻</p>
-
+                <span class="course-status">WORK IN PROGRESS</span>
             </div>
 
-
-            <!-- BACK OF CARD -->
-
-            <div class="flip-card-back">
-
-                <h3>Skull - Right View</h3>
-
-                <h4>Science Behind the Artwork</h4>
-
-                <p>
-                    The first labelled image shows the labelled osteology (bone structures) of the skeleton! This was done to show  where each bone resides in the skull and to help me memorise how the skull is arranged, this helps with  memorizing where different nerves or arteries may reside since i am now familiar with the general structure of the skull so i can now use that to help me visualise where the nerves or veins may be using spatial relationships! The second will show the facial nerves and where they reside on the skull - some of these would be inside the skull and loop over rather being exactly how i have drawn it but they are in the correct places - just not drawn in each view if that makes sense! Image will be uploaded soon... 
-                </p>
-
-                <h4>Extra Sketches</h4>
-
-                <img
-                    src="skull labelled osteology signed.png"
-                    alt="Skull right view sketch"
-                    class="gallery-image"
-                >
-
-                <img
-                    src="skull signed.png"
-                    alt="Additional skull sketch"
-                    class="gallery-image"
-                >
-
-                <p class="flip-hint">Click to return to the artwork </p>
-
+            <div id="courseView" class="course-view">
+                <div class="welcome-panel">
+                    <span class="welcome-icon">📚</span>
+                    <h2>Welcome to Science &amp; Art</h2>
+                    <p>Select a folder from the course menu to explore its content.</p>
+                </div>
             </div>
 
-        </div>
+        </section>
+    </main>
 
-    </div>
+    <!-- Skull artwork template -->
+    <template id="skullContent">
+        <article class="artwork flip-card"
+                 tabindex="0"
+                 role="button"
+                 aria-pressed="false"
+                 aria-label="Flip Skull - Right View artwork">
 
-</section>
-    
-    <!-- Footer -->
+            <div class="flip-card-inner">
+
+                <div class="flip-card-front">
+                    <div class="image-container">
+                        <div class="image-wrapper">
+                            <img src="skull signed.png"
+                                 alt="Skull - Right View"
+                                 class="gallery-image">
+
+                            <span class="watermark">©DrawWithLivv</span>
+                        </div>
+                    </div>
+
+                    <h3>Skull - Right View</h3>
+
+                    <p>
+                        <strong>The human skull</strong><br><br>
+                        This is currently a work in progress. The aim is to complete
+                        a human skull with the correct features and structures,
+                        interpreted with my own artistic twist.
+                    </p>
+
+                    <p>
+                        <strong>References:</strong> I used the Complete Anatomy app
+                        to help label the key aspects of the skull and check the
+                        information.
+                    </p>
+
+                    <p class="flip-hint">
+                        Click or press Enter to explore the artwork ↻
+                    </p>
+                </div>
+
+                <div class="flip-card-back">
+                    <h3>Skull - Right View</h3>
+                    <h4>Science Behind the Artwork</h4>
+
+                    <p>
+                        The labelled osteology image shows the bone structures of
+                        the skull and where each bone sits. Learning the general
+                        structure helps me visualise where nerves and arteries may
+                        travel in relation to the bones.
+                    </p>
+
+                    <p>
+                        The facial nerves illustration is still in progress.
+                        Some structures travel inside the skull or loop around it,
+                        so a single drawing cannot show every part of their path.
+                    </p>
+
+                    <h4>Extra Sketches</h4>
+
+                    <img src="skull labelled osteology signed.png"
+                         alt="Labelled skull osteology sketch"
+                         class="gallery-image">
+
+                    <img src="skull signed.png"
+                         alt="Additional skull sketch"
+                         class="gallery-image">
+
+                    <p class="flip-hint">
+                        Click or press Enter to return to the artwork ↻
+                    </p>
+                </div>
+
+            </div>
+        </article>
+    </template>
 
     <footer>
-
         <p>
-            © 2026 DrawWithLivv. All artwork and images are copyrighted and may not be copied, reproduced or used without permission.
+            © 2026 DrawWithLivv. All artwork and images are copyrighted and may
+            not be copied, reproduced or used without permission.
         </p>
-
     </footer>
-<script>
 
-document.querySelectorAll('.flip-card').forEach(card => {
+    <script>
+    (() => {
+        const tree = document.getElementById("courseTree");
+        const view = document.getElementById("courseView");
+        const breadcrumb = document.getElementById("courseBreadcrumb");
+        const skullTemplate = document.getElementById("skullContent");
 
-    function flipCard() {
+        /*
+         * COURSE FOLDERS
+         * Add or edit folders here as your course grows.
+         */
+        const course = {
+            id: "course",
+            title: "Course Content",
+            icon: "📚",
+            description: "Welcome to your Science and Art learning space.",
+            children: [
+                {
+                    id: "anatomy",
+                    title: "Anatomy",
+                    icon: "🧠",
+                    description: "Explore the structures of the human body.",
+                    children: [
+                        {
+                            id: "skull",
+                            title: "Skull",
+                            icon: "💀",
+                            description: "Skull anatomy, bone structures and artwork.",
+                            type: "skull"
+                        },
+                        {
+                            id: "brain",
+                            title: "Brain",
+                            icon: "🧠",
+                            description: "Brain structures and neurological artwork.",
+                            type: "placeholder"
+                        },
+                        {
+                            id: "heart",
+                            title: "Heart",
+                            icon: "❤️",
+                            description: "Heart anatomy and the circulatory system.",
+                            type: "placeholder"
+                        },
+                        {
+                            id: "hand",
+                            title: "Hand",
+                            icon: "✋",
+                            description: "Hand anatomy and related learning materials.",
+                            type: "placeholder"
+                        }
+                    ]
+                },
+                {
+                    id: "biology",
+                    title: "Biology",
+                    icon: "🔬",
+                    description: "Biology topics and revision materials.",
+                    children: []
+                },
+                {
+                    id: "chemistry",
+                    title: "Chemistry",
+                    icon: "⚗️",
+                    description: "Chemistry topics and revision materials.",
+                    children: []
+                },
+                {
+                    id: "art",
+                    title: "Art & Drawing",
+                    icon: "🎨",
+                    description: "Drawing techniques, colour theory and art studies.",
+                    children: [
+                        {
+                            id: "drawing",
+                            title: "Drawing Techniques",
+                            icon: "✏️",
+                            description: "Sketching, shading and perspective.",
+                            children: []
+                        },
+                        {
+                            id: "colour-theory",
+                            title: "Colour Theory",
+                            icon: "🌈",
+                            description: "Colour relationships and the colour wheel.",
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        };
 
-        const flipped = card.classList.toggle('flipped');
+        let activeId = "course";
+        const expanded = new Set(["course", "anatomy"]);
+        const nodeMap = new Map();
 
-        card.setAttribute('aria-pressed', flipped);
+        /* Build a lookup for every folder and remember its parent. */
+        function indexNodes(node, parent = null) {
+            node.parent = parent;
+            nodeMap.set(node.id, node);
 
-    }
-
-    // Click to flip
-    card.addEventListener('click', flipCard);
-
-    // Keyboard support
-    card.addEventListener('keydown', function(event) {
-
-        if (event.key === 'Enter' || event.key === ' ') {
-
-            event.preventDefault();
-
-            flipCard();
-
+            (node.children || []).forEach(child => {
+                indexNodes(child, node);
+            });
         }
 
-    });
+        indexNodes(course);
 
-});
+        function makeButton(text, className, onClick, ariaLabel) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = className;
+            button.textContent = text;
+            button.addEventListener("click", onClick);
 
-</script>
-    
-    </body>
-   
+            if (ariaLabel) {
+                button.setAttribute("aria-label", ariaLabel);
+            }
+
+            return button;
+        }
+
+        /* Draw the expandable folder tree. */
+        function renderTree() {
+            tree.replaceChildren();
+
+            function addNode(node, parentElement) {
+                const row = document.createElement("div");
+                row.className = "tree-row";
+
+                const hasChildren = Boolean(
+                    node.children && node.children.length
+                );
+
+                const toggle = makeButton(
+                    hasChildren
+                        ? (expanded.has(node.id) ? "▾" : "▸")
+                        : "·",
+                    "tree-toggle",
+                    () => {
+                        if (!hasChildren) {
+                            openFolder(node.id);
+                            return;
+                        }
+
+                        if (expanded.has(node.id)) {
+                            expanded.delete(node.id);
+                        } else {
+                            expanded.add(node.id);
+                        }
+
+                        renderTree();
+                    },
+                    hasChildren
+                        ? `${expanded.has(node.id) ? "Collapse" : "Expand"} ${node.title}`
+                        : `Open ${node.title}`
+                );
+
+                toggle.disabled = !hasChildren;
+
+                const select = makeButton(
+                    `${node.icon}  ${node.title}`,
+                    "tree-select",
+                    () => openFolder(node.id)
+                );
+
+                if (node.id === activeId) {
+                    select.setAttribute("aria-current", "page");
+                }
+
+                row.append(toggle, select);
+                parentElement.appendChild(row);
+
+                if (hasChildren && expanded.has(node.id)) {
+                    const children = document.createElement("div");
+                    children.className = "tree-children";
+
+                    node.children.forEach(child => {
+                        addNode(child, children);
+                    });
+
+                    parentElement.appendChild(children);
+                }
+            }
+
+            addNode(course, tree);
+        }
+
+        /* Create the breadcrumb trail above the content panel. */
+        function getPath(node) {
+            const path = [];
+            let current = node;
+
+            while (current) {
+                path.unshift(current);
+                current = current.parent;
+            }
+
+            return path;
+        }
+
+        function renderBreadcrumb(node) {
+            breadcrumb.replaceChildren();
+
+            const path = getPath(node);
+
+            path.forEach((item, index) => {
+                if (index > 0) {
+                    const separator = document.createElement("span");
+                    separator.textContent = "›";
+                    separator.setAttribute("aria-hidden", "true");
+                    breadcrumb.appendChild(separator);
+                }
+
+                if (index === path.length - 1) {
+                    const current = document.createElement("span");
+                    current.textContent = item.title;
+                    current.setAttribute("aria-current", "page");
+                    breadcrumb.appendChild(current);
+                } else {
+                    breadcrumb.appendChild(
+                        makeButton(item.title, "", () => openFolder(item.id))
+                    );
+                }
+            });
+        }
+
+        /* Show clickable cards for the folders inside a section. */
+        function addFolderCards(node) {
+            const children = node.children || [];
+
+            if (!children.length) {
+                return;
+            }
+
+            const grid = document.createElement("div");
+            grid.className = "folder-items";
+
+            children.forEach(child => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "course-item";
+
+                button.addEventListener("click", () => {
+                    openFolder(child.id);
+                });
+
+                const icon = document.createElement("span");
+                icon.className = "item-icon";
+                icon.textContent = child.icon;
+
+                const copy = document.createElement("span");
+                copy.className = "item-copy";
+
+                const title = document.createElement("span");
+                title.className = "item-title";
+                title.textContent = child.title;
+
+                const description = document.createElement("span");
+                description.className = "item-description";
+                description.textContent =
+                    child.description || "Open folder to view content.";
+
+                copy.append(title, description);
+                button.append(icon, copy);
+                grid.appendChild(button);
+            });
+
+            view.appendChild(grid);
+        }
+
+        function showWelcome() {
+            const panel = document.createElement("div");
+            panel.className = "welcome-panel";
+
+            const icon = document.createElement("span");
+            icon.className = "welcome-icon";
+            icon.textContent = "📚";
+
+            const title = document.createElement("h2");
+            title.textContent = "Welcome to Science & Art";
+
+            const intro = document.createElement("p");
+            intro.textContent =
+                "Select a folder from the course menu to explore its content.";
+
+            const quickLinks = document.createElement("div");
+            quickLinks.className = "quick-links";
+
+            [
+                ["🧠 Anatomy", "anatomy"],
+                ["🎨 Art & Drawing", "art"],
+                ["🔬 Biology", "biology"]
+            ].forEach(([label, id]) => {
+                quickLinks.appendChild(
+                    makeButton(label, "quick-link", () => openFolder(id))
+                );
+            });
+
+            panel.append(icon, title, intro, quickLinks);
+            view.appendChild(panel);
+        }
+
+        function showFolder(node) {
+            const title = document.createElement("h2");
+            title.textContent = `${node.icon} ${node.title}`;
+            view.appendChild(title);
+
+            const description = document.createElement("p");
+            description.textContent =
+                node.description || "Explore the materials in this folder.";
+            view.appendChild(description);
+
+            /* Show your skull artwork in the Skull folder. */
+            if (node.type === "skull") {
+                view.appendChild(skullTemplate.content.cloneNode(true));
+                return;
+            }
+
+            /* Show subfolders when this section has them. */
+            if (node.children && node.children.length) {
+                addFolderCards(node);
+                return;
+            }
+
+            /* Empty folders get a useful placeholder message. */
+            const notice = document.createElement("div");
+            notice.className = "course-notice";
+
+            const noticeText = document.createElement("p");
+            noticeText.textContent =
+                "This folder is ready for content. You can add your drawings, " +
+                "explanations, resource links and revision activities here as " +
+                "you develop the page.";
+
+            notice.appendChild(noticeText);
+            view.appendChild(notice);
+        }
+
+        /* Open a folder without reloading or leaving the page. */
+        function openFolder(id) {
+            const node = nodeMap.get(id);
+
+            if (!node) {
+                return;
+            }
+
+            activeId = id;
+
+            let parent = node.parent;
+
+            while (parent) {
+                expanded.add(parent.id);
+                parent = parent.parent;
+            }
+
+            renderTree();
+            renderBreadcrumb(node);
+            view.replaceChildren();
+
+            if (node.id === "course") {
+                showWelcome();
+            } else {
+                showFolder(node);
+            }
+        }
+
+        /* Flip the skull card when clicked. */
+        view.addEventListener("click", event => {
+            const card = event.target.closest(".flip-card");
+
+            if (!card) {
+                return;
+            }
+
+            if (event.target.closest("a, button, input, textarea, select")) {
+                return;
+            }
+
+            const flipped = card.classList.toggle("flipped");
+            card.setAttribute("aria-pressed", String(flipped));
+        });
+
+        /* Also allow keyboard use of the skull card. */
+        view.addEventListener("keydown", event => {
+            const card = event.target.closest(".flip-card");
+
+            if (!card || event.target !== card) {
+                return;
+            }
+
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+
+                const flipped = card.classList.toggle("flipped");
+                card.setAttribute("aria-pressed", String(flipped));
+            }
+        });
+
+        renderTree();
+        openFolder("course");
+    })();
+    </script>
+
+</body>
 </html>
-        
