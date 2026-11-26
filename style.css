@@ -678,7 +678,6 @@ body.viewer-open {
 
 /* =========================================
    SCIENCE ART FLIP CARDS
-   Add this section after the existing site styles.
 ========================================= */
 
 /* Keep the existing artwork card dimensions, colors and padding. */
@@ -801,7 +800,7 @@ body.viewer-open {
 /* Science and art blackboard css */
 
 .blackboard {
-    background-colour:#003300;
+    background-colour:#468768;
     colour: white;
     padding: 20px;
     border: 5px solid #8B4513;
